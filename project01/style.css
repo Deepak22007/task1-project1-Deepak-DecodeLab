@@ -1,0 +1,121 @@
+/* Color Palette & Font Setup */
+:root {
+    --mocha-mousse: #A5856F;
+    --ethereal-blue: #A0D4E0;
+    --moonlit-grey: #F2F0EA;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--moonlit-grey);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1, h2, .logo {
+    font-family: 'Inter', sans-serif;
+    color: var(--mocha-mousse);
+}
+
+/* Flexbox Micro Component: Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--ethereal-blue);
+    padding: 1rem 2rem;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+#nav-links {
+    display: none; /* Hidden by default on mobile */
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+#nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    padding: 0.5rem 0;
+    display: block;
+}
+
+/* Class to toggle mobile menu via JavaScript */
+#nav-links.active {
+    display: flex;
+}
+
+#menu-toggle {
+    background-color: var(--mocha-mousse);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    border-radius: 4px;
+}
+
+/* Macro Layout: Mobile First Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for mobile */
+    gap: 20px;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-article, .sidebar {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.primary-btn {
+    background-color: var(--mocha-mousse);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-family: 'Inter', sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--ethereal-blue);
+    font-size: 0.875rem;
+}
+
+/* Media Query: Tablet and Desktop Expansion */
+@media (min-width: 768px) {
+    /* Switch to 2-column grid layout */
+    .grid-container {
+        grid-template-columns: 3fr 1fr;
+    }
+    
+    /* Adjust Flexbox Nav for Desktop */
+    #menu-toggle {
+        display: none; /* Hide hamburger menu */
+    }
+    
+    #nav-links {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        width: auto;
+    }
+}
